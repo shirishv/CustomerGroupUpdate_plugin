@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bitware_Customergroup>
+            <version>0.1.0</version>
+        </Bitware_Customergroup>
+    </modules>
+    
+	<global>
+        <models>
+            <customergroup>
+                <class>Bitware_Customergroup_Model</class>
+                <resourceModel>customergroup_mysql4</resourceModel>
+            </customergroup>     
+        </models>
+		<events>
+				<checkout_onepage_controller_success_action>
+					<observers>
+						<customergroup_observer>
+							<class>customergroup/observer</class>
+							<method>customer_update_group</method>
+						</customergroup_observer>
+					</observers>
+				</checkout_onepage_controller_success_action>
+		</events>
+    </global>
+	
+</config>
